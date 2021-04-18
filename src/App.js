@@ -5,7 +5,7 @@ import Context from "./context";
 import Loader from "./Loader";
 import Modal from "./Modal/Modal";
 
-const AddTodo = React.lazy(() => import('./Todo/AddTodo'))
+/*const AddTodo = React.lazy(() => import('./Todo/AddTodo'))*/
 
 function App() {
 
@@ -125,9 +125,9 @@ function App() {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {drugstores.map(store => {
+            {drugstores.map((store, i) => {
                 return (
-                    <Marker position={[store.coordinates.lat, store.coordinates.long]}>
+                    <Marker position={[store.coordinates.lat, store.coordinates.long]} key={i}>
                         <Popup>
                             <strong>{store.name}</strong>
                         </Popup>
