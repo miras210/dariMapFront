@@ -15,6 +15,49 @@ function App() {
         scrollWheelZoom: true
     })
 
+    const drugstores = [
+        {
+            id: 1,
+            name: 'Здоровье',
+            coordinates: {
+                lat: 51.097906,
+                long: 71.414127
+            }
+        },
+        {
+            id: 2,
+            name: 'Солнечный',
+            coordinates: {
+                lat: 51.088947,
+                long: 71.442401
+            }
+        },
+        {
+            id: 3,
+            name: 'Северный',
+            coordinates: {
+                lat: 51.134889,
+                long: 71.462434
+            }
+        },
+        {
+            id: 4,
+            name: 'Семейный',
+            coordinates: {
+                lat: 51.152443,
+                long: 71.440453
+            }
+        },
+        {
+            id: 5,
+            name: 'Социальная аптека',
+            coordinates: {
+                lat: 51.155555,
+                long: 71.465755
+            }
+        },
+    ]
+
     /*const [todos, setTodos] = React.useState([])
     const [loading, setLoading] = React.useState(true)
 
@@ -82,11 +125,15 @@ function App() {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[51.090758, 71.418240]}>
-                <Popup>
-                    That's our SHARAGA. <br /> Simply AITU.
-                </Popup>
-            </Marker>
+            {drugstores.map(store => {
+                return (
+                    <Marker position={[store.coordinates.lat, store.coordinates.long]}>
+                        <Popup>
+                            <strong>{store.name}</strong>
+                        </Popup>
+                    </Marker>
+                )
+            })}
         </MapContainer>
     )
 }
